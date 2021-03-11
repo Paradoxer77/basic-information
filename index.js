@@ -11,6 +11,9 @@ http
   .createServer((req, res) => {
     let q = url.parse(req.url, true);
     let filename = `.${q.pathname}`;
+    if (filename === "./") {
+      filename = "./index.html";
+    }
 
     fs.readFile(filename, (err, data) => {
       if (err) {
