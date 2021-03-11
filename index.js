@@ -11,12 +11,12 @@ http
       if (err) {
         res.writeHead(404, { "Content-Type": "text/html" });
         res.write("404 not found");
-        res.end();
+        return res.end();
       }
 
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(data);
-      res.end();
+      return res.end();
     });
   })
   .listen(8080);
